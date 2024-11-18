@@ -1,6 +1,6 @@
 const colors = {
-    primary: '#ff9800',  // Orange
-    secondary: '#007BFF', // Blue
+    primary: '#FF6F00',  
+    secondary: '#007BFF', 
     text: '#333',
     placeholder: '#aaa',
     background: '#ffffff',

@@ -56,49 +56,42 @@ export default function Login() {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={{ width: "100%", alignItems: "center" }}>
-          <Image
-            source={require("../assets/images/welcome-img.png")}
-            style={styles.image}
-          />
-          <Text style={commonStyles.title}>NextQuest</Text>
+      <View style={{ width: "100%", alignItems: "center" }}>
+        <Image
+          source={require("../assets/images/welcome-img.png")}
+          style={styles.image}
+        />
+        <Text style={commonStyles.title}>NextQuest</Text>
 
-          <TextInput
-            style={commonStyles.input}
-            placeholder="Enter username"
-            placeholderTextColor={theme.colors.placeholder}
-            onChangeText={(text) => setEmail(text)}
-            value={email}
-            autoCapitalize="none"
-          />
-          <TextInput
-            style={commonStyles.input}
-            placeholder="Enter password"
-            placeholderTextColor={theme.colors.placeholder}
-            secureTextEntry
-            onChangeText={(text) => setPassword(text)}
-            value={password}
-            autoCapitalize="none"
-          />
-          <Text
-            style={styles.forgotPasswordText}
-            onPress={() => Alert.alert("Forgot password clicked!")}
-          >
-            Forgot your login
-          </Text>
-
-          <TouchableOpacity
-            style={commonStyles.button}
-            onPress={signInWithEmail}
-            disabled={loading}
-          >
-            <Text style={commonStyles.buttonText}>
-              {loading ? "Loading..." : "Sign In"}
-            </Text>
-          </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder="Enter username"
+          placeholderTextColor={theme.colors.placeholder}
+          onChangeText={(text) => setEmail(text)}
+          value={email}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Enter password"
+          placeholderTextColor={theme.colors.placeholder}
+          secureTextEntry
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          autoCapitalize="none"
+        />
+        <View style={{width: "90%"}}>
+        <Text
+          style={styles.forgotPasswordText}
+          onPress={() => Alert.alert("Forgot password clicked!")}
+        >
+          Forgot your login?
+        </Text>
+        </View>
+        <View style={{flexDirection: "row", gap: "5%"}}>
           <TouchableOpacity
             style={[
-              commonStyles.button,
+              styles.button,
               { backgroundColor: theme.colors.secondary },
             ]}
             onPress={signUpWithEmail}
@@ -108,7 +101,18 @@ export default function Login() {
               {loading ? "Loading..." : "Sign Up"}
             </Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={signInWithEmail}
+            disabled={loading}
+          >
+            <Text style={commonStyles.buttonText}>
+              {loading ? "Loading..." : "Sign In"}
+            </Text>
+          </TouchableOpacity>
         </View>
+      </View>
     </TouchableWithoutFeedback>
   );
 }
@@ -126,5 +130,25 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
     marginBottom: theme.spacing.medium,
   },
+  button: {
+    backgroundColor: theme.colors.primary,
+    borderRadius: 30,
+    height: 50,
+    width: '40%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: theme.spacing.small,
+  },
+  input: {
+    width: '90%',
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    paddingHorizontal: theme.spacing.medium,
+    marginBottom: theme.spacing.medium,
+    backgroundColor: '#f9f9f9',
+    fontSize: theme.fontSizes.medium,
+    color: theme.colors.text,
+  }
 });
-
