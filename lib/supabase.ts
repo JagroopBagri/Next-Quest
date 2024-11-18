@@ -5,7 +5,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = "https://tcyrxecrqsqtpmigbvrx.supabase.co";
 const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjeXJ4ZWNycXNxdHBtaWdidnJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE4MDIwNTAsImV4cCI6MjA0NzM3ODA1MH0.aQ_WfU7DMEwpdQ_46nAp86CAGzXjT7r5XC580elcG2w";
-console.log("suprebase yrl is", supabaseUrl);
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     storage: AsyncStorage,
